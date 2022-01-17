@@ -36,13 +36,13 @@ class Chassis : public frc2::SubsystemBase {
   // declared private and exposed only through public methods.
   WPI_TalonSRX m_forntLeft{drv::kFrontLeft};
   WPI_TalonSRX m_rearLeft{drv::kRearLeft};
-  frc::MotorControllerGroup Gantz{m_forntLeft, m_rearLeft};
+  frc::MotorControllerGroup m_left{m_forntLeft, m_rearLeft};
 
   WPI_TalonSRX m_frontRight{drv::kFrontRight};
   WPI_TalonSRX m_rearRight{drv::kRearRight};
-  frc::MotorControllerGroup Bibi{m_frontRight, m_rearRight};
+  frc::MotorControllerGroup m_right{m_frontRight, m_rearRight};
 
-  frc::DifferentialDrive Put_in{Gantz, Bibi};
+  frc::DifferentialDrive Put_in{m_left, m_right};
 
   frc::ADIS16448_IMU Gyro;
 
