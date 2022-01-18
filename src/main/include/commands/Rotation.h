@@ -33,6 +33,7 @@ class Rotation
 
  private:
   Chassis* m_chassis;
+
   double angle;
 
 };
