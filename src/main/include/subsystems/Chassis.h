@@ -25,11 +25,11 @@ class Chassis : public frc2::SubsystemBase {
   
   void ArcadeDrive(double fwd, double  rot, bool sqr);
 
-  void Rotate(units::degree_t targetAngle);
+  void Rotate(double targetAngle);
 
   void Calibrate_n_stop();
 
-  bool isInDirection(units::degree_t targetAngle);
+  bool isInDirection(double targetAngle);
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be

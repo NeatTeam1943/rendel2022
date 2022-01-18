@@ -31,7 +31,8 @@ class Rotation
 
   bool IsFinished() override;
 
-  double Angle;
  private:
   Chassis* m_chassis;
+  double angle;
+
 };
