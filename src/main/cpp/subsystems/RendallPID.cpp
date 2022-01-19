@@ -9,15 +9,8 @@ RendallPID::RendallPID()
           // The PIDController used by the subsystem
           frc2::PIDController(PID::Kp, PID::Ki, PID::Kd)) {}
 
-void RendallPID::load(double power) {
-  if (this->m_switch.Get()) {
-    this->m_loader.Set(power);
-  }
-}
-
-void RendallPID::load_n_shoot(double power) {
-  //needs change.
-  this->m_loader.Set(power);
+void RendallPID::load(bool load, double power, bool reversed) {
+    this->m_loader.Set(load ? (reversed ? -power : power) : 0.);
 }
 
 void RendallPID::UseOutput(double output, double setpoint) {

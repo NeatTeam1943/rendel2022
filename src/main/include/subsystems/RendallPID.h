@@ -8,7 +8,6 @@
 #include "ctre/Phoenix.h"
 #include <frc/Encoder.h>
 #include <frc/DigitalInput.h>
-#include <frc/controller/PIDController.h>
 
 #include <Constants.h>
 
@@ -16,15 +15,14 @@ class RendallPID : public frc2::PIDSubsystem {
  public:
   RendallPID();
 
- protected:
-  
-  void load(double power);
+  void load(bool load, double power = 0., bool reversed = false);
 
-  void load_n_shoot(double power);
+ protected:
 
   void UseOutput(double output, double setpoint) override;
 
   double GetMeasurement() override;
+
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
@@ -33,6 +31,4 @@ class RendallPID : public frc2::PIDSubsystem {
   
   frc::Encoder m_encoder {shoot::kEncoderPorts[0], shoot::kEncoderPorts[1]};
   frc::DigitalInput m_switch {shoot::kSwitchPort};
-
-  frc2::PIDController PID{PID::Kp, PID::Ki, PID::Kd};
 };
