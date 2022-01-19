@@ -19,8 +19,10 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
-  this->y.WhileHeld(this->m_loading);
-  this->x.WhileHeld(this->m_loading_n_shooting);
+  this->y.WhileHeld([this] {m_rendallpid.WhatTheSwitchDoin() ? m_rendallpid.Load(true, powers::kLoadPower) : m_rendallpid.Load(false); });
+  this->y.WhenReleased([this] { m_rendallpid.Load(false); });
+
+  this->x.WhileHeld(this->m_shoot);
   this->RB.WhenPressed(this->m_rotation_R);
   this->LB.WhenPressed(this->m_rotation_L);
 }

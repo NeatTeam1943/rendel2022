@@ -15,7 +15,9 @@ class RendallPID : public frc2::PIDSubsystem {
  public:
   RendallPID();
 
-  void load(bool load, double power = 0., bool reversed = false);
+  bool WhatTheSwitchDoin();
+
+  void Load(bool load, double power = 0., bool reversed = false);
 
  protected:
 

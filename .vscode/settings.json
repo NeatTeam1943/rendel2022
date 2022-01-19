@@ -21,6 +21,7 @@
     "limits": "cpp",
     "memory": "cpp",
     "functional": "cpp",
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "atomic": "cpp"
   }
 }

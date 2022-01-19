@@ -12,16 +12,16 @@ Shoot::Shoot(RendallPID* rendallpid) : m_rendallpid{rendallpid} {
 // Called when the command is initially scheduled.
 void Shoot::Initialize() {
   this->m_rendallpid->Disable();
-  this->m_rendallpid->load(false);
+  this->m_rendallpid->Load(false);
   this->m_rendallpid->SetSetpoint(powers::kShootPower);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
   if (m_rendallpid->GetController().AtSetpoint())
-    m_rendallpid->load(true, powers::kLoadPower);
+    m_rendallpid->Load(true, powers::kLoadPower);
   else
-    m_rendallpid->load(false);
+    m_rendallpid->Load(false);
 
   m_rendallpid->Enable();
 }
@@ -29,7 +29,7 @@ void Shoot::Execute() {
 // Called once the command ends or is interrupted.
 void Shoot::End(bool interrupted) {
   this->m_rendallpid->Disable();
-  m_rendallpid->load(false);
+  m_rendallpid->Load(false);
 }
 
 // Returns true when the command should end.

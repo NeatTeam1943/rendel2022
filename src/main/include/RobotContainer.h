@@ -12,9 +12,8 @@
 #include "commands/Rotation.h"
 
 
-#include "subsystems/Rendall.h"
-#include "commands/Loading.h"
-#include "commands/Loading_n_Shooting.h"
+#include "subsystems/RendallPID.h"
+#include "commands/Shoot.h"
 
 #include "Constants.h"
 
@@ -40,9 +39,8 @@ class RobotContainer {
   frc2::JoystickButton RB{&m_controller, 6};
   frc2::JoystickButton LB{&m_controller, 5};
 
-  Rendall m_rendall; //Defines the class Rendall as m_rendall
-  Loading m_loading{&m_rendall};
-  Loading_n_Shooting m_loading_n_shooting{&m_rendall};
+  RendallPID m_rendallpid; //Defines the class RendallPID as m_rendallpid
+  Shoot m_shoot{&m_rendallpid};
 
   Chassis m_chassis; //Defines the class Chassis as m_chassis
   Rotation m_rotation_R{&m_chassis, rotation::kRotationdegreesRight};
