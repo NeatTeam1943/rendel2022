@@ -23,7 +23,6 @@ namespace powers {
     const double kLoadPower = .3;
     const double kShootPower = .3;
 }
-const double kPower = .3;//It's still here, because all of the other commands still use it. I'll change everything later
 
 namespace radius {
     const double wheelRad = .1;

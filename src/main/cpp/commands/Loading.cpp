@@ -13,7 +13,7 @@ void Loading::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Loading::Execute() {
-  this->m_rendall->load(kPower);
+  this->m_rendall->load(powers::kLoadPower);
 }
 
 // Called once the command ends or is interrupted.
