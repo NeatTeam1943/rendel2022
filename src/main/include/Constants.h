@@ -21,7 +21,7 @@ namespace shoot {
 }
 namespace powers {
     const double kLoadPower = .3;
-    const double kShootPower = .3;
+    const double kShootPower = 25;
 }
 
 namespace radius {

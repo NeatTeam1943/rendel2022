@@ -13,7 +13,7 @@ void Loading_n_Shooting::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Loading_n_Shooting::Execute() {
-  this->m_rendall->load_n_shoot(powers::kShootPower);
+  this->m_rendall->load_n_shoot(powers::kLoadPower);
 }
 
 // Called once the command ends or is interrupted.
