@@ -9,6 +9,9 @@ namespace drv {
     constexpr int kFrontLeft = 2;
     constexpr int kRearRight = 3;
     constexpr int kFrontRight = 4;
+
+    constexpr int kLeftEncoderPorts[] = { 6, 7 };
+    constexpr int kRightEncoderPorts[] = { 8, 9 };
 }
 
 namespace shoot {

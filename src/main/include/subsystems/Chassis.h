@@ -46,7 +46,8 @@ class Chassis : public frc2::SubsystemBase {
 
   frc::ADIS16448_IMU Gyro;
 
-  frc::Encoder m_encoder {shoot::kEncoderPorts[0], shoot::kEncoderPorts[1]};
+  frc::Encoder m_encoderLeft {drv::kLeftEncoderPorts[0], drv::kLeftEncoderPorts[1]};
+  frc::Encoder m_encoderRight {drv::kRightEncoderPorts[0], drv::kRightEncoderPorts[1]};
 
   frc2::PIDController PID{PID::Kp, PID::Ki, PID::Kd};
 };
