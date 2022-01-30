@@ -13,21 +13,11 @@ void Chassis::ArcadeDrive(double fwd, double  rot, bool sqr) {
   this->Put_in.ArcadeDrive(fwd, rot, sqr);
 }
 
-void Chassis::Rotate(double targetAngle) {
-  if (targetAngle < 180) {
-    if ((double)this->Gyro.GetAngle() < targetAngle) {
-      this->ArcadeDrive(0,PID.Calculate((double)this->Gyro.GetAngle(),targetAngle),true);
-    }
-  } else if ((double)this->Gyro.GetAngle() > targetAngle) {
-      this->ArcadeDrive(0,PID.Calculate((double)this->Gyro.GetAngle(),targetAngle),true);
-  }
-}
-
-void Chassis::Calibrate_n_stop() {
+void Chassis::CalibrateAndStop() {
   this->Gyro.Calibrate();
   this->ArcadeDrive(0,0,false);
 }
 
-bool Chassis::isInDirection(double targetAngle) {
-  return (double)this->Gyro.GetAngle() == targetAngle;
+double Chassis::GetAngle() {
+  return (double)this->Gyro.GetAngle();
 }

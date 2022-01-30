@@ -4,28 +4,29 @@
 
 #include "commands/Rotation.h"
 
-Rotation::Rotation(Chassis* chassis, double angle) : m_chassis{chassis} ,angle{angle}{
+Rotation::Rotation(Chassis* chassis, double angle) : m_chassis{chassis} ,targetAngle{angle}{
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(this->m_chassis);
 }
 
 // Called when the command is initially scheduled.
 void Rotation::Initialize() {
-  this->m_chassis->Calibrate_n_stop();
+  this->m_chassis->CalibrateAndStop();
+  if (targetAngle < 180)
+    rotationPower = -rotationPower;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Rotation::Execute() {
-  if (!this->m_chassis->isInDirection(this->angle))
-  this->m_chassis->Rotate(this->angle);
+  this->m_chassis->ArcadeDrive(0,this->rotationPower,true);
 }
 
 // Called once the command ends or is interrupted.
 void Rotation::End(bool interrupted) {
-  this->m_chassis->Calibrate_n_stop();
+  this->m_chassis->CalibrateAndStop();
 }
 
 // Returns true when the command should end.
 bool Rotation::IsFinished() {
-  return this->m_chassis->isInDirection(this->angle);
+  return this->m_chassis->GetAngle() >= this->targetAngle;
 }

@@ -34,6 +34,8 @@ class Rotation
  private:
   Chassis* m_chassis;
 
-  double angle;
+  double targetAngle;
+
+  double rotationPower = 0.5;
 
 };

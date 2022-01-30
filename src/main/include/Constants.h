@@ -23,7 +23,7 @@ namespace shoot {
     constexpr int kShooter = 6;
 }
 namespace powers {
-    const double kLoadPower = .3;
+    const double kLoadPower = .6;
     const double kShootPower = 25;
 }
 
@@ -33,8 +33,8 @@ namespace radius {
 }
 
 namespace rotation {
-    const double kRotationdegreesRight = 90;
-    const double kRotationdegreesLeft = 270;
+    const double kRotationdegreesRight = 270;
+    const double kRotationdegreesLeft = 90;
 }
 
 namespace PID {

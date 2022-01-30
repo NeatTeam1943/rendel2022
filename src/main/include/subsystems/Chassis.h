@@ -10,7 +10,6 @@
 #include <frc2/command/SubsystemBase.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 #include <frc/drive/DifferentialDrive.h>
-#include <frc/controller/PIDController.h>
 
 #include "Constants.h"
 
@@ -25,11 +24,9 @@ class Chassis : public frc2::SubsystemBase {
   
   void ArcadeDrive(double fwd, double  rot, bool sqr);
 
-  void Rotate(double targetAngle);
+  void CalibrateAndStop();
 
-  void Calibrate_n_stop();
-
-  bool isInDirection(double targetAngle);
+  double GetAngle();
 
  private:
   // Components (e.g. motor controllers and sensors) should generally be
@@ -48,6 +45,4 @@ class Chassis : public frc2::SubsystemBase {
 
   frc::Encoder m_encoderLeft {drv::kLeftEncoderPorts[0], drv::kLeftEncoderPorts[1]};
   frc::Encoder m_encoderRight {drv::kRightEncoderPorts[0], drv::kRightEncoderPorts[1]};
-
-  frc2::PIDController PID{PID::Kp, PID::Ki, PID::Kd};
 };
