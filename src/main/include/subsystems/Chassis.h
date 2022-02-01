@@ -24,7 +24,7 @@ class Chassis : public frc2::SubsystemBase {
   
   void ArcadeDrive(double fwd, double  rot, bool sqr);
 
-  void CalibrateAndStop();
+  void Stop();
 
   double GetAngle();
 

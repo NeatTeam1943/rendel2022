@@ -13,8 +13,7 @@ void Chassis::ArcadeDrive(double fwd, double  rot, bool sqr) {
   this->Put_in.ArcadeDrive(fwd, rot, sqr);
 }
 
-void Chassis::CalibrateAndStop() {
-  this->Gyro.Calibrate();
+void Chassis::Stop() {
   this->ArcadeDrive(0,0,false);
 }
 

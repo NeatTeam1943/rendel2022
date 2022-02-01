@@ -33,7 +33,7 @@ namespace radius {
 }
 
 namespace rotation {
-    const double kRotationdegreesRight = 270;
+    const double kRotationdegreesRight = -90;
     const double kRotationdegreesLeft = 90;
 }
 

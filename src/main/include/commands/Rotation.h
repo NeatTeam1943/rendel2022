@@ -6,6 +6,7 @@
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
+#include <cmath>
 
 #include <subsystems/Chassis.h>
 
@@ -34,8 +35,10 @@ class Rotation
  private:
   Chassis* m_chassis;
 
-  double targetAngle;
+  double turnAngle;
 
-  double rotationPower = 0.5;
+  double finalAngle;
+
+  double rotationPower;
 
 };
